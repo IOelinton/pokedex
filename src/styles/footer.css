@@ -1,0 +1,25 @@
+footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: #302940;
+
+    position: absolute;
+    bottom: 0;
+    color: #EEDEAC;
+}
+
+.about {
+    display: flex;
+    width: 400px;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20;
+}
+
+.about a {
+    color: white;
+    font-size: 0.6rem;
+}

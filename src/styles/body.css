@@ -1,0 +1,9 @@
+.body-container {
+    max-width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
