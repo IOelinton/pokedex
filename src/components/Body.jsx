@@ -43,7 +43,10 @@ const Body = () => {
   }
 
   return (
-    <div>
+    <div className="body-container">
+      <p>
+        <h2>Nacional Dex</h2>
+      </p>
       <div className="pokemon-grid">
         {pokemons.map((pokemon) => (
           <div key={pokemon.id} className="pokemon-card">

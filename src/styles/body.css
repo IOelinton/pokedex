@@ -1,20 +1,30 @@
 .body-container {
-    max-width: 60%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    padding: 20px;
+    color: var(--off-white);
+}
+
+.body-container p {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+
 }
 
 .pokemon-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    border-top: 2px solid var(--off-white);
+    border-bottom: 2px solid var(--off-white);
+    border-radius: 10px;
+    padding: 1rem 0;
 
     width: 65%;
-    margin: auto;
-    padding: 1rem 0;
+    margin: 0 auto 2rem auto;
 }
 
 .pokemon-card {

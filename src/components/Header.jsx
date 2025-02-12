@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header>
       <div className="header-content">
-        <h1>Pokedex</h1>
+        <h1>Pokédex</h1>
         <div className="header-right">
           <input type="text" placeholder="Search" />
           <button>
