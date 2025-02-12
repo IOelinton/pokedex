@@ -29,7 +29,7 @@
     height: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--primary-color);
     border: solid 2px var(--primary-color);
@@ -174,4 +174,20 @@
 .water {
     background-color: #6890f0;
     border-color: #6890f0;
+}
+
+/*Animações*/
+
+@keyframes borderInsetOutset {
+    0% {
+        border: 3px inset var(--tertiary-color);
+    }
+
+    50% {
+        border: 3px outset var(--tertiary-color);
+    }
+
+    100% {
+        border: 3px inset var(--tertiary-color);
+    }
 }
