@@ -16,4 +16,8 @@ h3 {
 
 :root {
   --off-white: rgb(241, 236, 236);
+  --primary-color: #302940;
+  --secundary-color: #CDB0DE;
+  --tertiary-color: #DE66A0;
+  --quartenary-color: #6669DE;
 }

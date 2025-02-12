@@ -53,7 +53,7 @@ const Body = () => {
             <h3 className="pokemon-id"> {pokemon.id} </h3>
             <img src={pokemon.sprites.front_default} alt={pokemon.name} />
             <h3 className="pokemon-name">{pokemon.name}</h3>
-            <h2 className="pokemon-type">
+            <h2 className={`pokemon-type ${pokemon.types[0].type.name}`}>
               {pokemon.types.map((typeInfo) => typeInfo.type.name).join(" / ")}
             </h2>
           </div>

@@ -1,5 +1,5 @@
 header {
-    background-color: #302940;
+    background-color: var(--primary-color);
     display: flex;
     height: 60px;
     justify-content: center;
@@ -37,7 +37,7 @@ header {
 .header-right input {
     border: none;
     background-color: var(--off-white);
-    color: #251F2B;
+    color: var(--primary-color);
     font-size: 0.9rem;
 }
 
