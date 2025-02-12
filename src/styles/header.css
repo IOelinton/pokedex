@@ -1,6 +1,7 @@
 header {
     background-color: #302940;
     display: flex;
+    height: 60px;
     justify-content: center;
     align-items: center;
 }
@@ -14,7 +15,7 @@ header {
 
 .header-content h1 {
     font-size: 2rem;
-    color: #EEDEAC;
+    color: var(--off-white);
 }
 
 .header-content h1:hover {
@@ -23,9 +24,10 @@ header {
 
 .header-right {
     width: 400px;
+    height: 30px;
     padding: 0 1rem;
     border-radius: 1rem;
-    background-color: #EEDEAC;
+    background-color: var(--off-white);
     color: #302940;
     display: flex;
     justify-content: space-between;
@@ -33,7 +35,7 @@ header {
 
 .header-right input {
     border: none;
-    background-color: #EEDEAC;
+    background-color: var(--off-white);
     color: #251F2B;
     font-size: 0.9rem;
 }
@@ -43,16 +45,15 @@ header {
 }
 
 .header-content button {
-    background-color: #EEDEAC;
+    background-color: var(--off-white);
     border: none;
-    color: #302940;
-    padding: 0.5rem;
-    border-radius: 1rem;
 }
 
 .header-content button img {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 20px;
+    height: 20px;
+
+    object-fit: cover;
 }
 
 .header-content button:hover {

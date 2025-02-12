@@ -1,4 +1,7 @@
 .app {
-    background-color: #6A528B;
+    background-color: #252031;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
