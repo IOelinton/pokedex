@@ -7,6 +7,8 @@ const Body = () => {
   const [loading, setLoading] = useState(true);
   const [isReady, setIsReady] = useState(false);
   const [activeButton, setActiveButton] = useState("gen1");
+  const [showDisplay, setShowDisplay] = useState(false);
+  const [pokemonDetails, setPokemonDetails] = useState(null);
 
   const fetchPokemons = async () => {
     const genConfig = {
@@ -48,10 +50,18 @@ const Body = () => {
   };
 
   const handleDex = (e) => {
-    // const buttons = document.querySelectorAll(".button-area button");
-    // buttons.forEach((button) => button.classList.remove("active"));
-    // e.target.classList.add("active");
     setActiveButton(e.target.value);
+  };
+
+  const getPokemonDescription = (e) => {
+    setShowDisplay(true);
+
+    const card = e.currentTarget;
+    const idElement = card.querySelector(".pokemon-id");
+    const pokemonId = idElement?.textContent.trim();
+    const currentPokemon = pokemons.find((p) => p.id.toString() === pokemonId);
+    setPokemonDetails(currentPokemon);
+    console.log(currentPokemon);
   };
 
   useEffect(() => {
@@ -64,6 +74,47 @@ const Body = () => {
 
   return (
     <div className="body-container">
+      {showDisplay && (
+        <div
+          onClick={() => setActiveButton(setShowDisplay)}
+          className="pokemon-descripiton-container"
+        >
+          <div className="pokemon-description">
+            <button
+              className="modal-button"
+              onClick={() => setActiveButton(setShowDisplay)}
+            >
+              X
+            </button>
+            <h2>{pokemonDetails.name}</h2>
+            <div className="pokemon-imgs">
+              <img
+                src={pokemonDetails.sprites.front_default}
+                alt={pokemonDetails.name}
+              />
+              <img
+                src={pokemonDetails.sprites.back_default}
+                alt={pokemonDetails.name}
+              />
+            </div>
+            <div className="pokemon-abilities">
+              <p>abilities:</p>
+              {pokemonDetails.abilities
+                .map((ability) => ability.ability.name)
+                .join(" / ")}
+            </div>
+            <div className="pokemon-status">
+              <p>hp: {pokemonDetails.stats[0].base_stat}</p>
+              <p>atk: {pokemonDetails.stats[1].base_stat}</p>
+              <p>spAtk: {pokemonDetails.stats[3].base_stat}</p>
+              <p>def: {pokemonDetails.stats[2].base_stat}</p>
+              <p>spDef: {pokemonDetails.stats[4].base_stat}</p>
+              <p>speed: {pokemonDetails.stats[5].base_stat}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       <nav className="button-area">
         <button
           value="gen1"
@@ -131,7 +182,11 @@ const Body = () => {
       </nav>
       <div className="pokemon-grid">
         {pokemons.map((pokemon) => (
-          <div key={pokemon.id} className="pokemon-card">
+          <div
+            key={pokemon.id}
+            className="pokemon-card"
+            onClick={getPokemonDescription}
+          >
             <h3 className="pokemon-id"> {pokemon.id} </h3>
             <img src={pokemon.sprites.front_default} alt={pokemon.name} />
             <h3 className="pokemon-name">{pokemon.name}</h3>
