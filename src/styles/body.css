@@ -7,10 +7,29 @@
     color: var(--off-white);
 }
 
-.body-container p {
-    font-size: 1rem;
-    padding: 0;
-    margin: 0;
+.button-area {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.button-area button {
+    background-color: var(--primary-color);
+    color: var(--off-white);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-area button:hover {
+    background-color: var(--tertiary-color);
+}
+
+.button-area button.active {
+    background-color: var(--quartenary-color);
 }
 
 .pokemon-grid {
