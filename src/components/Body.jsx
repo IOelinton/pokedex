@@ -9,6 +9,7 @@ const Body = () => {
   const [activeButton, setActiveButton] = useState("gen1");
   const [showDisplay, setShowDisplay] = useState(false);
   const [pokemonDetails, setPokemonDetails] = useState(null);
+  const [showFrontSprite, setShowFrontSprite] = useState(true);
 
   const fetchPokemons = async () => {
     const genConfig = {
@@ -68,6 +69,16 @@ const Body = () => {
     fetchPokemons();
   }, [activeButton]);
 
+  useEffect(() => {
+    if (showDisplay) {
+      const interval = setInterval(() => {
+        setShowFrontSprite((prev) => !prev);
+      }, 2000); // Alterna a cada 2 segundos
+
+      return () => clearInterval(interval);
+    }
+  }, [showDisplay]);
+
   if (loading || !isReady) {
     return <Loading />;
   }
@@ -87,29 +98,125 @@ const Body = () => {
               X
             </button>
             <h2>{pokemonDetails.name}</h2>
-            <div className="pokemon-imgs">
-              <img
-                src={pokemonDetails.sprites.front_default}
-                alt={pokemonDetails.name}
-              />
-              <img
-                src={pokemonDetails.sprites.back_default}
-                alt={pokemonDetails.name}
-              />
-            </div>
+            <img
+              className="modal-sprit"
+              src={
+                showFrontSprite
+                  ? pokemonDetails.sprites.front_default
+                  : pokemonDetails.sprites.back_default
+              }
+              alt={pokemonDetails.name}
+            />
             <div className="pokemon-abilities">
-              <p>abilities:</p>
-              {pokemonDetails.abilities
-                .map((ability) => ability.ability.name)
-                .join(" / ")}
+              <p>
+                <span>abilities: </span>
+                {pokemonDetails.abilities
+                  .map((ability) => ability.ability.name)
+                  .join(" / ")}
+              </p>
             </div>
-            <div className="pokemon-status">
-              <p>hp: {pokemonDetails.stats[0].base_stat}</p>
-              <p>atk: {pokemonDetails.stats[1].base_stat}</p>
-              <p>spAtk: {pokemonDetails.stats[3].base_stat}</p>
-              <p>def: {pokemonDetails.stats[2].base_stat}</p>
-              <p>spDef: {pokemonDetails.stats[4].base_stat}</p>
-              <p>speed: {pokemonDetails.stats[5].base_stat}</p>
+            <div className="status-area">
+              <h2>Base status:</h2>
+              <table className="pokemon-status">
+                <tbody>
+                  <tr className="status-row">
+                    <th className="status-name">Hp:</th>
+                    <td className="status-value">
+                      {pokemonDetails.stats[0].base_stat}
+                    </td>
+                    <td className="cell-barchart">
+                      <div
+                        className="barchart-midle"
+                        style={{
+                          width: `${
+                            (pokemonDetails.stats[0].base_stat / 255) * 100
+                          }%`,
+                        }}
+                      ></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th className="status-name">Atk:</th>
+                    <td className="status-value">
+                      {pokemonDetails.stats[1].base_stat}
+                    </td>
+                    <td className="cell-barchart">
+                      <div
+                        className="barchart-midle"
+                        style={{
+                          width: `${
+                            (pokemonDetails.stats[1].base_stat / 255) * 100
+                          }%`,
+                        }}
+                      ></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th className="status-name">Def:</th>
+                    <td className="status-value">
+                      {pokemonDetails.stats[2].base_stat}
+                    </td>
+                    <td className="cell-barchart">
+                      <div
+                        className="barchart-midle"
+                        style={{
+                          width: `${
+                            (pokemonDetails.stats[2].base_stat / 255) * 100
+                          }%`,
+                        }}
+                      ></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th className="status-name">SpAtk:</th>
+                    <td className="status-value">
+                      {pokemonDetails.stats[3].base_stat}
+                    </td>
+                    <td className="cell-barchart">
+                      <div
+                        className="barchart-midle"
+                        style={{
+                          width: `${
+                            (pokemonDetails.stats[3].base_stat / 255) * 100
+                          }%`,
+                        }}
+                      ></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th className="status-name">SpeDef:</th>
+                    <td className="status-value">
+                      {pokemonDetails.stats[4].base_stat}
+                    </td>
+                    <td className="cell-barchart">
+                      <div
+                        className="barchart-midle"
+                        style={{
+                          width: `${
+                            (pokemonDetails.stats[4].base_stat / 255) * 100
+                          }%`,
+                        }}
+                      ></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th className="status-name">Speed:</th>
+                    <td className="status-value">
+                      {pokemonDetails.stats[5].base_stat}
+                    </td>
+                    <td className="cell-barchart">
+                      <div
+                        className="barchart-midle"
+                        style={{
+                          width: `${
+                            (pokemonDetails.stats[5].base_stat / 255) * 100
+                          }%`,
+                        }}
+                      ></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
