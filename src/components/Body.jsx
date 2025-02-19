@@ -40,7 +40,7 @@ const Body = () => {
         })
       );
 
-      setPokemons(pokemonDetails);
+      // setPokemons(pokemonDetails);
       setLoading(false);
       setTimeout(() => setIsReady(true), 500);
     } catch (error) {
@@ -90,7 +90,7 @@ const Body = () => {
           onClick={() => setActiveButton(setShowDisplay)}
           className="pokemon-descripiton-container"
         >
-          <div className="pokemon-description">
+          <div className="pokemon-modal">
             <button
               className="modal-button"
               onClick={() => setActiveButton(setShowDisplay)}

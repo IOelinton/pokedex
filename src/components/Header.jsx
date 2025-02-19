@@ -14,7 +14,7 @@ export default function Header() {
     <header>
       <div className="header-content">
         <h1>Pokédex</h1>
-        <div className="header-right">
+        {/* <div className="header-right">
           <input
             type="text"
             placeholder="Search"
@@ -29,7 +29,7 @@ export default function Header() {
           <button onClick={handleRedirect}>
             <img src={search} alt="search-icon" />
           </button>
-        </div>
+        </div> */}
       </div>
     </header>
   );
