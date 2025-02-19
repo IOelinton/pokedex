@@ -40,7 +40,7 @@ const Body = () => {
         })
       );
 
-      // setPokemons(pokemonDetails);
+      setPokemons(pokemonDetails);
       setLoading(false);
       setTimeout(() => setIsReady(true), 500);
     } catch (error) {
